@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Project_12_2_Tickets_With_Timeslots
-{
+{ 
     public partial class frmTickets : Form
     {
         public frmTickets()
