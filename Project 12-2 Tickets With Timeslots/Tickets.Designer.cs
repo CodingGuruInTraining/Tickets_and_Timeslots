@@ -121,6 +121,7 @@
             this.btnOptions.TabIndex = 3;
             this.btnOptions.Text = "&Options";
             this.btnOptions.UseVisualStyleBackColor = true;
+            this.btnOptions.Click += new System.EventHandler(this.btnOptions_Click);
             // 
             // btnExit
             // 

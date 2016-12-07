@@ -12,10 +12,13 @@ namespace Project_12_2_Tickets_With_Timeslots
 { 
     public partial class frmTickets : Form
     {
+        frmOptions frmOpt = new frmOptions();
+
         public frmTickets()
         {
             InitializeComponent();
             timerTitle.Enabled = true;
+            
             List<TimeSlot> allTimeSlots = new List<TimeSlot>();
         }
 
@@ -23,10 +26,10 @@ namespace Project_12_2_Tickets_With_Timeslots
         {
             DateTime timeVar = DateTime.Now;
             this.Text = timeVar.ToString();
-            while (true)
-            {
+            //while (true)
+            //{
 
-            }      
+            //}      
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -37,7 +40,19 @@ namespace Project_12_2_Tickets_With_Timeslots
 
         private void btnIssue_Click(object sender, EventArgs e)
         {
+
+
             Ticket ticket = new Ticket();
+        }
+
+        private void btnOptions_Click(object sender, EventArgs e)
+        {
+            DialogResult warningMsg = MessageBox.Show("WARNING; all outstanding tickets will be terminated should you continue. Would you like to continue?", "WARNING", MessageBoxButtons.YesNo);
+            if (warningMsg == DialogResult.Yes)
+            {
+                // clear listbox listbox.items.clear()
+                frmOpt.Show();
+            }
         }
     }
 }

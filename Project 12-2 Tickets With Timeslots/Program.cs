@@ -16,7 +16,7 @@ namespace Project_12_2_Tickets_With_Timeslots
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmOptions());
+            //Application.Run(new frmOptions());
             Application.Run(new frmTickets());
         }
     }

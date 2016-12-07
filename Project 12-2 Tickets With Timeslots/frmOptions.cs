@@ -7,20 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Murach.Validation;
 
 namespace Project_12_2_Tickets_With_Timeslots
 {
     public partial class frmOptions : Form
     {
+        public string[] optsList;
+
         public frmOptions()
         {
             InitializeComponent();
+            // Default values
             txtMins.Text = (5).ToString();
             txtGuests.Text = (5).ToString();
             txtStart.Text = DateTime.Now.ToShortTimeString();
             txtEnd.Text = (DateTime.Now.AddHours(4)).ToShortTimeString();
             txtFirst.Text = (1).ToString();
+
+            
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -36,6 +40,12 @@ namespace Project_12_2_Tickets_With_Timeslots
             {
                 MessageBox.Show("An unknown error has occurred");
             }
+        }
+
+        private void makeOptsList(string mins, string guests, string start, string end, string first)
+        {
+            string[] tempList = { mins, guests, start, end, first };
+            optsList = tempList;
         }
 
         private bool goodDataCheck(TextBox textboxv, string namev, byte type)
