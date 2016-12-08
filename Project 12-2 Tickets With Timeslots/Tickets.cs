@@ -26,7 +26,7 @@ namespace Project_12_2_Tickets_With_Timeslots
         private void timerTicking(object sender, EventArgs e)
         {
             DateTime timeVar = DateTime.Now;
-            this.Text = timeVar.ToString();
+            this.Text = timeVar.ToLongTimeString();
             
             //while (true)
             //{
@@ -45,8 +45,8 @@ namespace Project_12_2_Tickets_With_Timeslots
 
 
             Ticket ticket = new Ticket();
-            timeSlot.ticketsIssued += 1;
-            lblOutstandTicks.Text = (Convert.ToInt32(lblOutstandTicks.Text));
+            timeSlot.addTicket();
+            lblOutstandTicks.Text = timeSlot.ticketsIssued.ToString();
         }
 
         private void btnOptions_Click(object sender, EventArgs e)
@@ -64,3 +64,8 @@ namespace Project_12_2_Tickets_With_Timeslots
         }
     }
 }
+// TO DO STILL:
+//      get options form to start first
+//      intantiate ticket class
+//      add ticket to listbox
+//      check if open or closed (available tickets?)

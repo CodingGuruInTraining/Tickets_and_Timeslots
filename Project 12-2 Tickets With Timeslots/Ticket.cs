@@ -17,6 +17,8 @@ namespace Project_12_2_Tickets_With_Timeslots
         {
             //int num = frmOptions.Minutes;
             //frmOptions.Minutes.
+
+
         }
     }
 }
