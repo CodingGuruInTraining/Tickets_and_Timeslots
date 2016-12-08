@@ -13,6 +13,7 @@ namespace Project_12_2_Tickets_With_Timeslots
     public partial class frmTickets : Form
     {
         frmOptions frmOpt = new frmOptions();
+        TimeSlot timeSlot;
 
         public frmTickets()
         {
@@ -26,6 +27,7 @@ namespace Project_12_2_Tickets_With_Timeslots
         {
             DateTime timeVar = DateTime.Now;
             this.Text = timeVar.ToString();
+            
             //while (true)
             //{
 
@@ -43,6 +45,8 @@ namespace Project_12_2_Tickets_With_Timeslots
 
 
             Ticket ticket = new Ticket();
+            timeSlot.ticketsIssued += 1;
+            lblOutstandTicks.Text = (Convert.ToInt32(lblOutstandTicks.Text));
         }
 
         private void btnOptions_Click(object sender, EventArgs e)
@@ -51,8 +55,11 @@ namespace Project_12_2_Tickets_With_Timeslots
             if (warningMsg == DialogResult.Yes)
             {
                 // clear listbox listbox.items.clear()
-                frmOpt.Show();
-                TimeSlot timeSlot = new TimeSlot(frmOpt.optsList[0], frmOpt.optsList[1], frmOpt.optsList[2], frmOpt.optsList[3], frmOpt.optsList[4]);
+                frmOpt.ShowDialog();
+                timeSlot = new TimeSlot(frmOpt.optsList[0], frmOpt.optsList[1], frmOpt.optsList[2], frmOpt.optsList[3], frmOpt.optsList[4]);
+                lblGuests.Text = timeSlot.firstTicket.ToString() + " - " + timeSlot.lastTicket.ToString();
+                //lblOutstandTicks.Text = lboxTickets.Items.Count.ToString();
+                lblNextSlot.Text = (timeSlot.startTime.AddMinutes(timeSlot.slotLength)).ToShortTimeString();
             }
         }
     }

@@ -12,8 +12,9 @@ namespace Project_12_2_Tickets_With_Timeslots
         public int numGuests;
         public DateTime startTime;
         private DateTime endTime;
-        private int firstTicket;
+        public int firstTicket;
         public int ticketsIssued;
+        public int lastTicket;
 
         public TimeSlot(string minutes, string guests, string start, string end, string first)
         {
@@ -22,6 +23,7 @@ namespace Project_12_2_Tickets_With_Timeslots
             startTime = Convert.ToDateTime(start);
             endTime = Convert.ToDateTime(end);
             firstTicket = Convert.ToInt32(first);
+            lastTicket = firstTicket + (numGuests - 1);
             //ticketsIssued = tickets;
         }
 
