@@ -52,6 +52,7 @@ namespace Project_12_2_Tickets_With_Timeslots
             {
                 // clear listbox listbox.items.clear()
                 frmOpt.Show();
+                TimeSlot timeSlot = new TimeSlot(frmOpt.optsList[0], frmOpt.optsList[1], frmOpt.optsList[2], frmOpt.optsList[3], frmOpt.optsList[4]);
             }
         }
     }

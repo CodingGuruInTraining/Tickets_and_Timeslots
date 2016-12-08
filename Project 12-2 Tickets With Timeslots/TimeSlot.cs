@@ -9,15 +9,20 @@ namespace Project_12_2_Tickets_With_Timeslots
     public class TimeSlot
     {
         public int slotLength;
+        public int numGuests;
         public DateTime startTime;
-        //private DateTime endTime;
+        private DateTime endTime;
+        private int firstTicket;
         public int ticketsIssued;
 
-        public TimeSlot(DateTime time, int length, int tickets = 0)
+        public TimeSlot(string minutes, string guests, string start, string end, string first)
         {
-            startTime = time;
-            slotLength = length;
-            ticketsIssued = tickets;
+            slotLength = Convert.ToInt32(minutes);
+            numGuests = Convert.ToInt32(guests);
+            startTime = Convert.ToDateTime(start);
+            endTime = Convert.ToDateTime(end);
+            firstTicket = Convert.ToInt32(first);
+            //ticketsIssued = tickets;
         }
 
         public DateTime EndTime
