@@ -15,8 +15,9 @@ namespace Project_12_2_Tickets_With_Timeslots
         public int firstTicket;
         public int ticketsIssued;
         public int lastTicket;
+        public int outstandingTickets;
 
-        public TimeSlot(string minutes, string guests, string start, string end, string first)
+        public TimeSlot(string minutes, string guests, string start, string end, string first, int total)
         {
             slotLength = Convert.ToInt32(minutes);
             numGuests = Convert.ToInt32(guests);
@@ -24,7 +25,7 @@ namespace Project_12_2_Tickets_With_Timeslots
             endTime = Convert.ToDateTime(end);
             firstTicket = Convert.ToInt32(first);
             lastTicket = firstTicket + (numGuests - 1);
-            //ticketsIssued = tickets;
+            outstandingTickets = total;
         }
 
         public DateTime EndTime
@@ -37,7 +38,13 @@ namespace Project_12_2_Tickets_With_Timeslots
 
         public void addTicket()
         {
-            ticketsIssued = ticketsIssued + 1;
+            ticketsIssued += 1;
+            outstandingTickets += 1;
         }
+
+        //public void addToTotal(int issued)
+        //{
+        //    outstandingTickets += issued;
+        //}
     }
 }

@@ -32,6 +32,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblGuests = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblNextSlot = new System.Windows.Forms.Label();
             this.lblOutstandTicks = new System.Windows.Forms.Label();
             this.btnIssue = new System.Windows.Forms.Button();
@@ -39,8 +41,6 @@
             this.btnOptions = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.timerTitle = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -79,6 +79,26 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ticket Availability";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label2.Location = new System.Drawing.Point(12, 41);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(103, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Next available entry:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(12, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(126, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Total tickets outstanding:";
             // 
             // lblNextSlot
             // 
@@ -143,26 +163,6 @@
             this.timerTitle.Interval = 1000;
             this.timerTitle.Tick += new System.EventHandler(this.timerTicking);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(12, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Total tickets outstanding:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(12, 41);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Next available entry:";
-            // 
             // frmTickets
             // 
             this.AcceptButton = this.btnIssue;
@@ -177,6 +177,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "frmTickets";
             this.Text = "Tickets With Timeslots";
+            this.Load += new System.EventHandler(this.frmTickets_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

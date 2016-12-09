@@ -31,7 +31,7 @@ namespace Project_12_2_Tickets_With_Timeslots
         {
             try
             {
-                if (goodDataCheck(txtMins, "The Minutes field", 1) && goodDataCheck(txtGuests, "The Number of Allowed Guests field", 1) && goodDataCheck(txtStart, "The Start Time", 2) && goodDataCheck(txtEnd, "The End Time", 2) && goodDataCheck(txtFirst, "The First Ticket Number field", 1))
+                if (goodDataCheck(txtMins, "The Minutes field", 1) && goodDataCheck(txtGuests, "The Number of Allowed Guests field", 1) && goodDataCheck(txtStart, "The Start Time", 2) && goodDataCheck(txtEnd, "The End Time", 2) && goodDataCheck(txtFirst, "The First Ticket Number field", 1) && checkDateDiff(Convert.ToDateTime(txtStart), Convert.ToDateTime(txtEnd), Convert.ToInt32(txtMins)))
                 {
                     // Compiles textbox values in a list for referencing
                     makeOptsList(txtMins.Text, txtGuests.Text, txtStart.Text, txtEnd.Text, txtFirst.Text);
@@ -46,6 +46,7 @@ namespace Project_12_2_Tickets_With_Timeslots
 
         private void makeOptsList(string mins, string guests, string start, string end, string first)
         {
+            start = Convert.ToDateTime(start).AddMinutes(5).ToString();
             string[] tempList = { mins, guests, start, end, first };
             optsList = tempList;
         }
@@ -103,6 +104,19 @@ namespace Project_12_2_Tickets_With_Timeslots
                 return false;
             }
         }
+
+        private bool checkDateDiff(DateTime start, DateTime end, int interval)
+        {
+            var diff = end.Subtract(start.AddMinutes(interval * 2)).TotalMinutes;
+            //TimeSpan diff = end - (start.AddMinutes(interval * 2));
+            if (diff < 0)
+            {
+                MessageBox.Show("The End Time must allow for at least 2 timeslots.");
+                return false;
+            }
+            return true;
+        }
+
         //public static int Minutes
         //{
         //    get
