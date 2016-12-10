@@ -77,13 +77,14 @@ namespace Project_12_2_Tickets_With_Timeslots
             DialogResult warningMsg = MessageBox.Show("WARNING; all outstanding tickets will be terminated should you continue. Would you like to continue?", "WARNING", MessageBoxButtons.YesNo);
             if (warningMsg == DialogResult.Yes)
             {
+                timeSlot.clearFields(lboxTickets);
                 // clear listbox listbox.items.clear()
                 frmOpt.ShowDialog();
-                //makeTimeSlot();
+                makeTimeSlot();
                 //int outstandingTickets = 0;
                 //timeSlot = new TimeSlot(frmOpt.optsList[0], frmOpt.optsList[1], frmOpt.optsList[2], frmOpt.optsList[3], frmOpt.optsList[4], outstandingTickets);
                 //updateLabels(timeSlot);
-                
+
 
                 //allTimeSlots.Add(timeSlot);
                 //lblGuests.Text = timeSlot.firstTicket.ToString() + " - " + timeSlot.lastTicket.ToString();
@@ -95,7 +96,7 @@ namespace Project_12_2_Tickets_With_Timeslots
         private void updateLabels(TimeSlot timeslot)
         {
             allTimeSlots.Add(timeslot);
-            //lblGuests.Text = timeslot.firstTicket.ToString() + " - " + timeslot.lastTicket.ToString();
+            lblGuests.Text = timeslot.firstTicket.ToString() + " - " + timeslot.lastTicket.ToString();
             lblNextSlot.Text = (timeslot.startTime.AddMinutes(timeslot.slotLength)).ToShortTimeString();
             lblOutstandTicks.Text = timeslot.outstandingTickets.ToString();
         }
@@ -119,3 +120,5 @@ namespace Project_12_2_Tickets_With_Timeslots
 
 //      check if open or closed (available tickets?)
 //      guests label needs to go off something else, separately
+//      counts and stuff don't reset when go back to options form
+//      next available entry label not reseting

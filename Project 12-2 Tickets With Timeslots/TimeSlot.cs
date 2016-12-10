@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Project_12_2_Tickets_With_Timeslots
 {
@@ -46,5 +47,17 @@ namespace Project_12_2_Tickets_With_Timeslots
         //{
         //    outstandingTickets += issued;
         //}
+
+        public void clearFields(ListBox lbox)
+        {
+            lbox.Items.Clear();
+            firstTicket = 0;
+            lastTicket = 0;
+            outstandingTickets = 0;
+            startTime = default(DateTime);
+            endTime = default(DateTime);
+            ticketsIssued = 0;
+            numGuests = 0;
+        }
     }
 }
