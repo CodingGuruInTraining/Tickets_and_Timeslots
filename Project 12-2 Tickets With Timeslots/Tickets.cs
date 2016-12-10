@@ -39,12 +39,7 @@ namespace Project_12_2_Tickets_With_Timeslots
                 //else
                 //    status = " [CLOSED]";
             }
-            this.Text = timeVar.ToLongTimeString() + status;
-            
-            //while (true)
-            //{
-
-            //}      
+            this.Text = timeVar.ToLongTimeString() + status;    
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -58,8 +53,9 @@ namespace Project_12_2_Tickets_With_Timeslots
             if (timeSlot.ticketsIssued == timeSlot.numGuests)
             {
                 // Recursion:?
-                timeSlot = new TimeSlot(frmOpt.optsList[0], frmOpt.optsList[1], timeSlot.EndTime.ToString(), frmOpt.optsList[3], (timeSlot.lastTicket + 1).ToString(), timeSlot.outstandingTickets);
-                updateLabels(timeSlot);
+                makeTimeSlot();
+                //timeSlot = new TimeSlot(frmOpt.optsList[0], frmOpt.optsList[1], timeSlot.EndTime.ToString(), frmOpt.optsList[3], (timeSlot.lastTicket + 1).ToString(), timeSlot.outstandingTickets);
+                //updateLabels(timeSlot);
             }
             //else if (timeSlot.ticketsIssued < timeSlot.numGuests)
             //{
@@ -81,15 +77,6 @@ namespace Project_12_2_Tickets_With_Timeslots
                 // clear listbox listbox.items.clear()
                 frmOpt.ShowDialog();
                 makeTimeSlot();
-                //int outstandingTickets = 0;
-                //timeSlot = new TimeSlot(frmOpt.optsList[0], frmOpt.optsList[1], frmOpt.optsList[2], frmOpt.optsList[3], frmOpt.optsList[4], outstandingTickets);
-                //updateLabels(timeSlot);
-
-
-                //allTimeSlots.Add(timeSlot);
-                //lblGuests.Text = timeSlot.firstTicket.ToString() + " - " + timeSlot.lastTicket.ToString();
-                ////lblOutstandTicks.Text = lboxTickets.Items.Count.ToString();
-                //lblNextSlot.Text = (timeSlot.startTime.AddMinutes(timeSlot.slotLength)).ToShortTimeString();
             }
         }
 
@@ -122,3 +109,4 @@ namespace Project_12_2_Tickets_With_Timeslots
 //      guests label needs to go off something else, separately
 //      counts and stuff don't reset when go back to options form
 //      next available entry label not reseting
+//          use startStart as initial time?

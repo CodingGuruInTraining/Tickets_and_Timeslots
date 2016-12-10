@@ -47,8 +47,9 @@ namespace Project_12_2_Tickets_With_Timeslots
 
         private void makeOptsList(string mins, string guests, string start, string end, string first)
         {
+            string startStart = start.ToString();
             start = Convert.ToDateTime(start).AddMinutes(5).ToString();
-            string[] tempList = { mins, guests, start, end, first };
+            string[] tempList = { mins, guests, start, end, first, startStart };
             optsList = tempList;
         }
 

@@ -11,6 +11,7 @@ namespace Project_12_2_Tickets_With_Timeslots
     {
         public int slotLength;
         public int numGuests;
+        private string startStartTime;
         public DateTime startTime;
         private DateTime endTime;
         public int firstTicket;
@@ -34,6 +35,14 @@ namespace Project_12_2_Tickets_With_Timeslots
             get
             {
                 return startTime.AddMinutes((double)slotLength);
+            }
+        }
+
+        public string  StartStartTime
+        {
+            set
+            {
+                startStartTime = value;
             }
         }
 
