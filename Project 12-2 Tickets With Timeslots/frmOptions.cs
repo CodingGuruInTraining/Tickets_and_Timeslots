@@ -31,7 +31,8 @@ namespace Project_12_2_Tickets_With_Timeslots
         {
             try
             {
-                if (goodDataCheck(txtMins, "The Minutes field", 1) && goodDataCheck(txtGuests, "The Number of Allowed Guests field", 1) && goodDataCheck(txtStart, "The Start Time", 2) && goodDataCheck(txtEnd, "The End Time", 2) && goodDataCheck(txtFirst, "The First Ticket Number field", 1) && checkDateDiff(Convert.ToDateTime(txtStart), Convert.ToDateTime(txtEnd), Convert.ToInt32(txtMins)))
+                if (goodDataCheck(txtMins, "The Minutes field", 1) && goodDataCheck(txtGuests, "The Number of Allowed Guests field", 1) && goodDataCheck(txtStart, "The Start Time", 2) && goodDataCheck(txtEnd, "The End Time", 2) && goodDataCheck(txtFirst, "The First Ticket Number field", 1)) 
+                    //&& checkDateDiff(Convert.ToDateTime(txtStart), Convert.ToDateTime(txtEnd), Convert.ToInt32(txtMins)))
                 {
                     // Compiles textbox values in a list for referencing
                     makeOptsList(txtMins.Text, txtGuests.Text, txtStart.Text, txtEnd.Text, txtFirst.Text);

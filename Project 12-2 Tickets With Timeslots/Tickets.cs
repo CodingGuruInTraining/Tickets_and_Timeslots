@@ -55,7 +55,7 @@ namespace Project_12_2_Tickets_With_Timeslots
 
         private void btnIssue_Click(object sender, EventArgs e)
         {
-            //if (timeSlot.ticketsIssued == timeSlot.numGuests)
+            if (timeSlot.ticketsIssued == timeSlot.numGuests)
             {
                 // Recursion:?
                 timeSlot = new TimeSlot(frmOpt.optsList[0], frmOpt.optsList[1], timeSlot.EndTime.ToString(), frmOpt.optsList[3], (timeSlot.lastTicket + 1).ToString(), timeSlot.outstandingTickets);
@@ -97,7 +97,7 @@ namespace Project_12_2_Tickets_With_Timeslots
             allTimeSlots.Add(timeslot);
             //lblGuests.Text = timeslot.firstTicket.ToString() + " - " + timeslot.lastTicket.ToString();
             lblNextSlot.Text = (timeslot.startTime.AddMinutes(timeslot.slotLength)).ToShortTimeString();
-            lblOutstandTicks.Text = timeSlot.outstandingTickets.ToString();
+            lblOutstandTicks.Text = timeslot.outstandingTickets.ToString();
         }
         private void makeTimeSlot()
         {
@@ -107,9 +107,9 @@ namespace Project_12_2_Tickets_With_Timeslots
         }
         private void frmTickets_Load(object sender, EventArgs e)
         {
-            //frmOpt = new frmOptions();
-            ////frmOpt.ShowDialog();
-            ////makeTimeSlot();
+            frmOpt = new frmOptions();
+            frmOpt.ShowDialog();
+            makeTimeSlot();
         }
     }
 }
