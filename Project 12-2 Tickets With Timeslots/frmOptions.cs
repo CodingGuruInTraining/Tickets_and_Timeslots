@@ -1,4 +1,5 @@
-﻿using System;
+﻿// This secondary form is used to retrieve inputs from the user regarding the criteria to follow.
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace Project_12_2_Tickets_With_Timeslots
 {
     public partial class frmOptions : Form
     {
+        // Defines global array variable
         public string[] optsList;
 
         public frmOptions()
@@ -23,14 +25,14 @@ namespace Project_12_2_Tickets_With_Timeslots
             txtStart.Text = DateTime.Now.ToShortTimeString();
             txtEnd.Text = (DateTime.Now.AddHours(4)).ToShortTimeString();
             txtFirst.Text = (1).ToString();
-
-            
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            // Exception handler
             try
             {
+                // Validates inputs before proceeding further
                 if (goodDataCheck(txtMins, "The Minutes field", 1) && goodDataCheck(txtGuests, "The Number of Allowed Guests field", 1) && goodDataCheck(txtStart, "The Start Time", 2) && goodDataCheck(txtEnd, "The End Time", 2) && goodDataCheck(txtFirst, "The First Ticket Number field", 1)) 
                     //&& checkDateDiff(Convert.ToDateTime(txtStart), Convert.ToDateTime(txtEnd), Convert.ToInt32(txtMins)))
                 {
@@ -47,6 +49,7 @@ namespace Project_12_2_Tickets_With_Timeslots
 
         private void makeOptsList(string mins, string guests, string start, string end, string first)
         {
+            // Converts specific values for incrementing then combines provided values in an array
             string startStart = start.ToString();
             start = Convert.ToDateTime(start).AddMinutes(5).ToString();
             string[] tempList = { mins, guests, start, end, first, startStart };
@@ -55,6 +58,8 @@ namespace Project_12_2_Tickets_With_Timeslots
 
         private bool goodDataCheck(TextBox textboxv, string namev, byte type)
         {   // type 1 = int; type 2 = datetime
+
+            // Validates inputs and returns message if fails
             if (!isPresent(textboxv, namev))
             {
                 //MessageBox.Show(namev + " is empty still");
@@ -109,6 +114,7 @@ namespace Project_12_2_Tickets_With_Timeslots
 
         private bool checkDateDiff(DateTime start, DateTime end, int interval)
         {
+            // Checks if provided times allow for at least 2 intervals
             var diff = end.Subtract(start.AddMinutes(interval * 2)).TotalMinutes;
             //TimeSpan diff = end - (start.AddMinutes(interval * 2));
             if (diff < 0)
